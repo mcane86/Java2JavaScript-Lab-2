@@ -8,11 +8,23 @@ function PetChat(){
     return prompt("How many pets do you have?");
   };
 
+
+
   var askPetInfo = function(){
     for(var i=0; i<numPets; i++){
-      var type = prompt("What is pet #" + (i+1) + "? (cat, dog, bird)");
+      var speak = "Nope";
+      var type = prompt("What is pet #" + (i+1) + "? (cat, dog, elephant)");
+      if(type.toLowerCase() == "dog") {
+        speak = "Woof";
+      } else if(type.toLowerCase() == "cat") {
+        speak = "Meow";
+      } else if(type.toLowerCase() == "elephant") {
+        speak = "Fwomp!"
+      } else {
+        speak = "I have no idea what sound this animal makes.";
+      }
       var name = prompt("What is pet #" + (i+1) + "'s name'?");
-      var textOut = type + " " + name + "<br />";
+      var textOut = type + " " + name + " " + speak + "<br />";
       display.innerHTML += textOut;
     }
   };
